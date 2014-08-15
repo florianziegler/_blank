@@ -1,0 +1,157 @@
+/*
+ * Incorporate normalize.css
+ */
+@import "normalize.scss";
+
+/*! _blank Theme starts here... */
+
+/*
+ * Colors
+ */
+
+$primary: #00f;
+$secondary: #f00;
+$background: #eee;
+$text: #16161d;
+
+/*
+ * Fonts
+ */
+
+$font: Helvetica, Arial, sans-serif;
+
+/*
+ * Beaking Points
+ */
+
+$break: 768px;
+$break2: 1060px;
+$maxwidth: 1060px;
+
+/*
+ * Useful mixins
+ */
+
+@mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+@mixin clear-after {
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+@mixin visually-hidden {
+    position: absolute;
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+/*
+ * Basics
+ */
+
+html {
+  box-sizing: border-box;
+  background-color: $background;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+    font-family: $font;
+    font-size: 16px;
+    line-height: 1.5;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+a {
+    color: $primary;
+    
+    &:hover, &:active {
+        color: $secondary;
+    }
+}
+
+/*
+ * And so it beginns...
+ */
+
+#site-wrap {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: $maxwidth;
+    background-color: #fff;
+    
+    @media only screen and (min-width: $break) {
+        padding: 0 2rem;
+    }
+}
+
+#logo {
+    svg {
+        width: 200px;
+        fill: $primary;
+    }
+    &:hover {
+        svg {
+            fill: $secondary;
+        }
+    }
+}
+
+#open-main-navigation {
+    @media only screen and (min-width: $break) {
+        display: none;
+    }
+}
+
+#main-navigation {
+    height: 0;
+    overflow: hidden;
+
+    @media only screen and (min-width: $break) {
+        height: auto;
+        overflow: normal;
+    }
+
+    &.open {
+        height: auto;
+        overflow: normal;
+    }
+}
+
+#open-searchform {
+    @media only screen and (min-width: $break) {
+        display: none;
+    }    
+}
+
+#searchform {
+    height: 0;
+    overflow: hidden;
+
+    @media only screen and (min-width: $break) {
+        height: auto;
+        overflow: normal;
+    }
+
+    &.open {
+        height: auto;
+        overflow: normal;
+    }
+}
+
+.hidden {
+    display: none;
+}

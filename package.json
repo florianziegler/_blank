@@ -1,0 +1,17 @@
+{
+	"name": "_blank",
+	"description": "A WordPress Starter Theme",
+	"version": "1.0.0",
+	"author": "Florian Ziegler",
+	"homepage": "http://florianziegler.de/_blank/",
+
+	"devDependencies": {
+		"grunt":					"~0.4.2",
+		"grunt-contrib-uglify":		"~0.5.1",
+		"grunt-contrib-sass":		"~0.7.3",
+        "grunt-autoprefixer":       "~0.8.2",
+        "grunt-svgstore":           "~0.3.1",
+        "grunt-rsync":              "~0.6.2",
+		"grunt-contrib-watch":		"~0.6.1"
+	}
+}
