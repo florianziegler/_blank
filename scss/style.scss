@@ -1,7 +1,7 @@
 /*
  * Incorporate normalize.css
  */
-@import "normalize.scss";
+@import 'normalize';
 
 /*! _blank Theme starts here... */
 
@@ -11,7 +11,7 @@
 
 $primary: #00f;
 $secondary: #f00;
-$background: #eee;
+$background: white;
 $text: #16161d;
 
 /*
@@ -70,6 +70,7 @@ body {
     font-family: $font;
     font-size: 16px;
     line-height: 1.5;
+    color: $text;
 }
 img {
     max-width: 100%;
@@ -91,7 +92,6 @@ a {
     margin: 0 auto;
     padding: 0 1rem;
     max-width: $maxwidth;
-    background-color: #fff;
     
     @media only screen and (min-width: $break) {
         padding: 0 2rem;
@@ -129,6 +129,10 @@ a {
         height: auto;
         overflow: normal;
     }
+    
+    ul {
+        @include list-reset;
+    }
 }
 
 #open-searchform {
@@ -154,4 +158,25 @@ a {
 
 .hidden {
     display: none;
+}
+
+/*
+ * each loop, colored button example
+ */
+.button {
+    border-radius: 3px;
+
+    @each $color in (red #f00) (blue #00f) (green #0f0) {
+        $colorname: nth($color, 1);
+        $colorvalue: nth($color, 2);
+
+        &.#{$colorname} {
+            background-color: $colorvalue;
+            color: white;
+
+            &:hover, &:active {
+                background: darken($colorvalue, 25%);
+            }
+        }
+    }
 }

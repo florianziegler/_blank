@@ -1,6 +1,7 @@
 module.exports = function( grunt ) {
 
 	grunt.initConfig({
+
 		pkg: grunt.file.readJSON( 'package.json' ),
 
 		uglify: {
@@ -55,8 +56,8 @@ module.exports = function( grunt ) {
             },
             dist: {
                 options: {
-                    src: "./",
-                    dest: "../blank-deploy",
+                    src: './',
+                    dest: '../_blank-deploy',
                     delete: true
                 }
             }
@@ -99,5 +100,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
 	grunt.registerTask( 'default', ['watch'] );
+    grunt.registerTask( 'build', ['rsync'] );
 
 };

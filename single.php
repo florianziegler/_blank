@@ -21,7 +21,7 @@ get_header(); ?>
 
     	<nav class="post-navigation">
             <span class="prev"><?php previous_post_link( '&larr; %link' ); ?></span>
-            <span class"next"><?php next_post_link( '%link &rarr;' ); ?></span>
+            <span class="next"><?php next_post_link( '%link &rarr;' ); ?></span>
         </nav>
 
     <?php } ?>
