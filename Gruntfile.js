@@ -17,7 +17,7 @@ module.exports = function( grunt ) {
 					style: 'compressed'
 				},
 				files: {
-					'css/style.unprefixed.css': 'scss/style.scss'
+					'css/blank.unprefixed.css': 'scss/blank.scss'
 				}
 			}
 		},
@@ -27,8 +27,8 @@ module.exports = function( grunt ) {
                 browsers: ['last 2 versions', 'ie 9', 'ios 6', 'android 4']
             },
             style: {
-                src: 'css/style.unprefixed.css',
-                dest: 'css/style.css'
+                src: 'css/blank.unprefixed.css',
+                dest: 'css/blank.css'
             }
         },
 
