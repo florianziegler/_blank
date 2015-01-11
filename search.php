@@ -20,10 +20,19 @@ get_header(); ?>
     		<?php the_excerpt(); ?>
         </article>
 
-        <?php } } else { ?>
+        <?php }
+
+        // Previous/next page navigation
+		the_posts_pagination( array(
+			'prev_text' => __( '&larr; previous page', '_blank' ),
+			'next_text' => __( 'next page &rarr;', '_blank' ),
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', '_blank' ) . ' </span>',
+		) );
+
+        } else { ?>
 
         <section class="nothing">
-    	    <h1><?php _e( 'Nothing found', 'blank' ); ?></h1>
+    	    <h1><?php _e( 'Nothing found', '_blank' ); ?></h1>
             <?php get_search_form(); ?>
         </section>
 

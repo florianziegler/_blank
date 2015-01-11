@@ -23,8 +23,8 @@ register_sidebar(array(
 	'description'   => __( 'Displayed on the right, next to the main content.', '_blank' ),
 	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 	'after_widget'  => '</aside>',
-	'before_title'  => '<h2 class="widgettitle">',
-	'after_title'   => '</h2>',
+	'before_title'  => '<span class="widgettitle">',
+	'after_title'   => '</span>',
 ));
 
 
@@ -93,11 +93,11 @@ function _blank_img_caption_shortcode( $attr, $content = null ) {
 
 // Enqueue scripts and styles
 function _blank_init() {
-	if ( !is_admin() ) {   
+	if ( ! is_admin() ) {   
         //wp_register_style( 'googlefonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,600italic,700,700italic,800,800italic' );
 		//wp_enqueue_style('googlefonts');
         wp_enqueue_script( 'modernizer', get_template_directory_uri() . '/js/vendor/modernizr.min.js', array( 'jquery' ), '2014-08-08', true );
-		wp_register_style( '_blank', get_stylesheet_directory_uri() . '/css/style.css' );
+		wp_register_style( '_blank', get_stylesheet_directory_uri() . '/css/blank.css' );
 		wp_enqueue_style( '_blank' );
         wp_enqueue_script( '_blank', get_template_directory_uri() . '/js/main.min.js', array( 'jquery', 'jquery-effects-slide' ), '2014-08-08', true );
 	}
