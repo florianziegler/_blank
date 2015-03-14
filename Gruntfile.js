@@ -1,26 +1,26 @@
 module.exports = function( grunt ) {
 
-	grunt.initConfig({
+    grunt.initConfig({
 
-		pkg: grunt.file.readJSON( 'package.json' ),
+        pkg: grunt.file.readJSON( 'package.json' ),
 
-		uglify: {
-			build: {
-				src: 'js/main.js',
-				dest: 'js/main.min.js',
-	  		}
-		},
+        uglify: {
+            build: {
+                src: 'js/main.js',
+                dest: 'js/main.min.js',
+            }
+        },
 
-		sass: {
-			style: {
-				options: {
-					style: 'compressed'
-				},
-				files: {
-					'css/blank.unprefixed.css': 'scss/blank.scss'
-				}
-			}
-		},
+        sass: {
+            style: {
+                options: {
+                    style: 'compressed'
+                },
+                files: {
+                    'css/blank.unprefixed.css': 'scss/blank.scss'
+                }
+            }
+        },
 
         autoprefixer: {
             options: {
@@ -43,15 +43,34 @@ module.exports = function( grunt ) {
             },
             default: {
                 files: {
-                    'images/shapes.svg': ['svg/*.svg']
+                    'images/shapes.svg': ['src/svg/*.svg']
                 }
+            }
+        },
+
+        respimg: {
+            options: {
+                widths: [
+                    320,
+                    640,
+                    1280
+                ]
+            },
+            default: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/images/',
+                    src: ['**.{gif,jpg,png,svg}'],
+                    dest: 'images/'
+                }]
+                // Target-specific file lists go here. 
             }
         },
 
         rsync: {
             options: {
                 args: ["--verbose"],
-                exclude: [".git*","style.unprefixed.css","main.js","node_modules","scss","svg","Gruntfile.js","package.json"],
+                exclude: [".git*","style.unprefixed.css","main.js","node_modules","scss","src","Gruntfile.js","package.json"],
                 recursive: true
             },
             dist: {
@@ -63,43 +82,60 @@ module.exports = function( grunt ) {
             }
         },
 
-		watch: {
-			options: {
-				livereload: true,
-			},
-			php: {
-				files: ['*.php'],
-			},
-			scripts: {
-				files: ['js/*.js'],
-				tasks: ['uglify'],
-				options: {
-					spawn: false,
-				},
-			},
-			css: {
-				files: ['scss/**/*.scss'],
-				tasks: ['sass', 'autoprefixer'],
-				options: {
-					spawn: false,
-				}
-			},
+        watch: {
+            options: {
+                livereload: true,
+            },
+            php: {
+                files: ['*.php'],
+            },
+            scripts: {
+                files: ['js/*.js'],
+                tasks: ['uglify'],
+                options: {
+                    spawn: false,
+                },
+            },
+            css: {
+                files: ['scss/**/*.scss'],
+                tasks: ['sass', 'autoprefixer'],
+                options: {
+                    spawn: false,
+                }
+            },
             svg: {
                 files: ['svg/*.svg'],
                 tasks: ['svgstore']
             }
-		}
+        }
 
-	});
+    });
 
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-sass' );
+    grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+    grunt.loadNpmTasks( 'grunt-contrib-sass' );
     grunt.loadNpmTasks( 'grunt-autoprefixer' );
-	grunt.loadNpmTasks( 'grunt-svgstore' );
-	grunt.loadNpmTasks( 'grunt-rsync' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    grunt.loadNpmTasks( 'grunt-svgstore' );
+    grunt.loadNpmTasks( 'grunt-respimg' );
+    grunt.loadNpmTasks( 'grunt-rsync' );
+    grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
-	grunt.registerTask( 'default', ['watch'] );
-    grunt.registerTask( 'build', ['rsync'] );
+    grunt.registerTask(
+        'default',
+        [
+            'watch'
+        ]
+    );
+
+    grunt.registerTask(
+        'build',
+        [
+            'uglify',
+            'sass',
+            'autoprefixer',
+            'svgstore',
+            'respimg',
+            'rsync'
+        ]
+    );
 
 };

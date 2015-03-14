@@ -22,6 +22,7 @@ _blank uses [grunt](http://gruntjs.com/) with the following pre-configured tasks
 * [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass)
 - [grunt-autoprefixer](https://github.com/nDmitry/grunt-autoprefixer)
 - [grunt-svgstore](https://github.com/FWeinb/grunt-svgstore)
+- [grunt-respimg](https://github.com/nwtn/grunt-respimg)
 - [grunt-rsync](https://github.com/jedrichards/grunt-rsync)
 - [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
 
@@ -54,7 +55,6 @@ For additional functionality, I create a separate plugin. (And you should, too. 
 
 ## Roadmap:
 
-- I will include more grunt tasks (eg. grunt-contrib-imagemin and grunt-contrib-jshint).
 - Technologies, requirements and tastes are changing continuously and so will this starter theme. I will get rid of stuff I don't need (anymore) while adding new stuff, that I find myself using on a regular basis.
 
 * * *

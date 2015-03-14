@@ -9,8 +9,8 @@ get_header(); ?>
 
     <?php while ( have_posts() ) { the_post(); ?>
 
-    	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        	<header class="entry-header">
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <header class="entry-header">
                 <span class="post-date"><?php the_time( get_option( 'date_format' ) ) ?></span>
                 <h1><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
             </header>
@@ -19,10 +19,10 @@ get_header(); ?>
             </div>
         </article>
 
-    	<nav class="post-navigation">
-            <span class="prev"><?php previous_post_link( '&larr; %link' ); ?></span>
-            <span class="next"><?php next_post_link( '%link &rarr;' ); ?></span>
-        </nav>
+        <?php the_post_navigation( array(
+            'prev_text' => _x( '<span class="meta-nav">Previous <span class="screen-reader-text">post:</span></span><span class="post-title">%title</span>', 'Previous post link', '_blank' ),
+            'next_text' => _x( '<span class="meta-nav">Next <span class="screen-reader-text">post:</span></span><span class="post-title">%title</span>', 'Next post link', '_blank' ),
+        ) ); ?>
 
     <?php } ?>
 
