@@ -94,7 +94,7 @@ function _blank_img_caption_shortcode( $attr, $content = null ) {
 
 // Enqueue scripts and styles
 function _blank_init() {
-    if ( ! is_admin() ) {   
+    if ( ! is_admin() ) {
         //wp_register_style( 'googlefonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,600italic,700,700italic,800,800italic' );
         //wp_enqueue_style('googlefonts');
         wp_enqueue_script( 'modernizer', get_template_directory_uri() . '/js/vendor/modernizr.min.js', array( 'jquery' ), '2014-08-08', true );

@@ -12,23 +12,25 @@ module.exports = function( grunt ) {
         },
 
         sass: {
-            style: {
+            dist: {
                 options: {
                     style: 'compressed'
                 },
                 files: {
-                    'css/blank.unprefixed.css': 'scss/blank.scss'
+                    'css/blank.css': 'scss/blank.scss'
                 }
             }
         },
 
         autoprefixer: {
             options: {
-                browsers: ['last 2 versions', 'ie 9', 'ios 6', 'android 4']
+                browsers: ['last 2 versions', 'ie 9', 'ios 6', 'android 4'],
+                map: true
             },
             style: {
-                src: 'css/blank.unprefixed.css',
-                dest: 'css/blank.css'
+                files: {
+                    'css/blank.css': 'css/blank.css'
+                }
             }
         },
 
@@ -70,7 +72,7 @@ module.exports = function( grunt ) {
         rsync: {
             options: {
                 args: ["--verbose"],
-                exclude: [".git*","style.unprefixed.css","main.js","node_modules","scss","src","Gruntfile.js","package.json"],
+                exclude: [".git*","main.js","node_modules","scss","src","Gruntfile.js","package.json"],
                 recursive: true
             },
             dist: {

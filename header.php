@@ -31,7 +31,7 @@
                 </a>
                 <div id="description"><?php bloginfo( 'description' ); ?></div>
                 <a id="open-main-navigation" aria-hidden="true" href="#main-navigation"><?php _e( 'Open Menu', '_blank' ); ?></a>
-                <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'items_wrap' => '<nav id="main-navigation" role="navigation"><ul id="%1$s">%3$s</ul></nav><!-- #main-navigation -->' ) ); ?>
+                <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'items_wrap' => '<nav id="main-navigation" role="navigation"><ul id="%1$s">%3$s</ul></nav><!-- #main-navigation -->', 'fallback_cb' => false ) ); ?>
                 <a id="open-searchform" href="#searchform"><?php _e( 'Show search form', '_blank' ); ?></a>
                 <?php get_search_form(); ?>
             </div><!-- #site-branding -->
